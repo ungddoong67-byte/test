@@ -44,10 +44,10 @@ html, body {
     font-size: 2rem; /* 모바일 글자 크기 조절 */
   }
   
-  .section1 { background-image: url('m_bg1.webp'); }
-  .section2 { background-image: url('m_bg2.webp'); }
-  .section3 { background-image: url('m_bg3.webp'); }
-  .section4 { background-image: url('m_bg4.webp'); }
-  .section5 { background-image: url('m_bg5.webp'); }
-  .section6 { background-image: url('m_bg6.webp'); }
+  .section1 { background-image: url('bg1.webp'); }
+  .section2 { background-image: url('bg2.webp'); }
+  .section3 { background-image: url('bg3.webp'); }
+  .section4 { background-image: url('bg4.webp'); }
+  .section5 { background-image: url('bg5.webp'); }
+  .section6 { background-image: url('bg6.webp'); }
 }
