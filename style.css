@@ -19,12 +19,29 @@ html, body {
   font-size: 3rem;
   font-weight: bold;
   color: #fff;
+  
+  /* 배경 이미지 공통 설정 (화면에 맞게 잘림 없이/비율 유지하며 꽉 채움) */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
-/* 색상 구분을 위한 임시 배경색 설정 */
-.section1 { background-color: #3498db; }
-.section2 { background-color: #2ecc71; }
-.section3 { background-color: #e74c3c; }
-.section4 { background-color: #9b59b6; }
-.section5 { background-color: #f1c40f; }
-.section6 { background-color: #34495e; }
+/* 각 컨테이너별 배경 이미지 설정 */
+.section1 { 
+  background-image: url('bg1.jpg'); 
+}
+.section2 { 
+  background-image: url('bg2.jpg'); 
+}
+.section3 { 
+  background-image: url('bg3.jpg'); 
+}
+.section4 { 
+  background-image: url('bg4.jpg'); 
+}
+.section5 { 
+  background-image: url('bg5.jpg'); 
+}
+.section6 { 
+  background-image: url('bg6.jpg'); 
+}
