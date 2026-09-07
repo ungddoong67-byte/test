@@ -20,28 +20,34 @@ html, body {
   font-weight: bold;
   color: #fff;
   
-  /* 배경 이미지 공통 설정 (화면에 맞게 잘림 없이/비율 유지하며 꽉 채움) */
+  /* 배경 이미지 공통 설정 */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
-/* 각 컨테이너별 배경 이미지 설정 */
-.section1 { 
-  background-image: url('bg1.jpg'); 
-}
-.section2 { 
-  background-image: url('bg2.jpg'); 
-}
-.section3 { 
-  background-image: url('bg3.jpg'); 
-}
-.section4 { 
-  background-image: url('bg4.jpg'); 
-}
-.section5 { 
-  background-image: url('bg5.jpg'); 
-}
-.section6 { 
-  background-image: url('bg6.jpg'); 
+/* ==========================================
+   1. PC / 데스크톱용 배경 이미지 (기본값)
+   ========================================== */
+.section1 { background-image: url('bg1.webp'); }
+.section2 { background-image: url('bg2.webp'); }
+.section3 { background-image: url('bg3.webp'); }
+.section4 { background-image: url('bg4.webp'); }
+.section5 { background-image: url('bg5.webp'); }
+.section6 { background-image: url('bg6.webp'); }
+
+/* ==========================================
+   2. 모바일용 배경 이미지 (화면 너비 768px 이하)
+   ========================================== */
+@media (max-width: 768px) {
+  .section {
+    font-size: 2rem; /* 모바일 글자 크기 조절 */
+  }
+  
+  .section1 { background-image: url('m_bg1.webp'); }
+  .section2 { background-image: url('m_bg2.webp'); }
+  .section3 { background-image: url('m_bg3.webp'); }
+  .section4 { background-image: url('m_bg4.webp'); }
+  .section5 { background-image: url('m_bg5.webp'); }
+  .section6 { background-image: url('m_bg6.webp'); }
 }
