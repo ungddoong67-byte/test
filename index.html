@@ -1,21 +1,632 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Page Scroll</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+  <meta name="title" content="화물인 - 용달서비스">
+  <meta name="description" content="용달서비스를 제공하는 화물인입니다. 전국 화물용달은 오토바이 퀵서비스, 다마스, 라보, 1톤 ~ 25톤까지 다양한 차량에 배차를 하실 수 있습니다.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="화물인 - 용달서비스">
+  <meta property="og:description" content="용달서비스를 제공하는 화물인입니다. 전국 화물용달은 오토바이 퀵서비스, 다마스, 라보, 1톤 ~ 25톤까지 다양한 차량에 배차를 하실 수 있습니다.">
+  <meta property="og:url" content="https://15228754.com/">
+  <meta property="og:site_name" content="화물인 - 용달서비스">
+  <meta property="og:image" content="https://15228754.com/sns_image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="author" content="hwamulin">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="화물인 - 용달서비스">
+  <meta name="twitter:description" content="용달서비스를 제공하는 화물인입니다. 전국 화물용달은 오토바이 퀵서비스, 다마스, 라보, 1톤 ~ 25톤까지 다양한 차량에 배차를 하실 수 있습니다.">
+  <meta name="twitter:image" content="https://15228754.com/sns_image.jpg">
+  <meta name="twitter:label1" content="Written by">
+  <meta name="twitter:data1" content="hwamulin">
+  <meta name="twitter:label2" content="Est. reading time">
+  <meta name="twitter:data2" content="3분">
+  <title>화물인</title>
+  <link rel="stylesheet" href="https://15228754.com/theme/basic/css/default.css?1788770648">
+  <link rel="stylesheet" href="https://15228754.com/theme/basic/css/bootstrap.min.css?1788770648">
+  <link rel="stylesheet" href="https://15228754.com/theme/basic/css/themify-icons.css?1788770648">
+  <link href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="https://api.1han.kr/data/site/1003/1003_faviconicon.ico">
+  <meta property="og:image" content="./sns_image.jpg">
+  <!--[if lte IE 8]><script src="https://15228754.com/js/html5.js"></script><![endif]-->
+  <script>
+    // 자바스크립트에서 사용하는 전역변수 선언
+    var g5_url       = "https://15228754.com";
+    var g5_bbs_url   = "https://15228754.com/bbs";
+    var g5_is_member = "";
+    var g5_is_admin  = "";
+    var g5_is_mobile = "";
+    var g5_bo_table  = "";
+    var g5_sca       = "";
+    var g5_editor    = "";
+    var g5_cookie_domain = "";
+  </script>
+  <script src="https://15228754.com/js/jquery-1.8.3.min.js"></script>
+  <script src="https://15228754.com/js/TweenMax.min.js?ver=171222"></script>
+  <script src="https://15228754.com/js/jquery.validate.min.js"></script>
+  <script src="https://15228754.com/js/common2.js?1788770648"></script>
+  <script src="https://15228754.com/js/common.js?ver=171222"></script>
+  <script src="https://15228754.com/js/wrest.js?ver=171222"></script>
+  <script src="https://15228754.com/js/placeholders.min.js"></script>
+  <link rel="stylesheet" href="https://15228754.com/js/font-awesome/css/font-awesome.min.css">
+  <link rel="manifest" href="/manifest.json">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W3WT543');</script>
+  <!-- End Google Tag Manager -->
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 총 6개의 컨테이너 -->
-  <div class="section section1">Section 1</div>
-  <div class="section section2">Section 2</div>
-  <div class="section section3">Section 3</div>
-  <div class="section section4">Section 4</div>
-  <div class="section section5">Section 5</div>
-  <div class="section section6">Section 6</div>
+  <!-- 고정 상단 헤더 -->
+  <div id="hd">
+    <h1 id="hd_h1">화물인</h1>
+    <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
+    <!-- 팝업레이어 시작 { -->
+    <div id="hd_pop">
+      <h2>팝업레이어 알림</h2>
+      <span class="sound_only">팝업레이어 알림이 없습니다.</span>
+    </div>
+    <script>
+      $(function() {
+        $(".hd_pops_reject").click(function() {
+          var id = $(this).attr('class').split(' ');
+          var ck_name = id[1];
+          var exp_time = parseInt(id[2]);
+          $("#"+id[1]).css("display", "none");
+          set_cookie(ck_name, 1, exp_time, g5_cookie_domain);
+        });
+        $('.hd_pops_close').click(function() {
+          var idb = $(this).attr('class').split(' ');
+          $('#'+idb[1]).css('display','none');
+        });
+        $("#hd").css("z-index", 1000);
+      });
+    </script>
+    <!-- } 팝업레이어 끝 -->
+    <div id="hd_wrapper">
+      <h1 id="logo"><a href="https://15228754.com"><img src="https://15228754.com/img/logon.png?v200"></a></h1>
+      <nav id="gnb">
+        <h2>메인메뉴</h2>
+        <div class="gnb_wrap">
+          <ul id="gnb_1dul">
+            <li class="gnb_1dli" style="z-index:2000">
+              <a href="https://15228754.1han.kr" target="_blank" class="gnb_1da"><span>온라인 주문</span></a>
+            </li>
+            <li class="gnb_1dli" style="z-index:1999">
+              <a href="http://15228754.com/bbs/content.php?co_id=csize" target="_self" class="gnb_1da"><span>차량종류 확인</span></a>
+            </li>
+            <li class="gnb_1dli" style="z-index:1998">
+              <a href="http://15228754.com/bbs/board.php?bo_table=faq" target="_self" class="gnb_1da"><span>자주하는 질문</span></a>
+            </li>
+            <li class="gnb_1dli" style="z-index:1997">
+              <a href="http://15228754.com/bbs/write.php?bo_table=business" target="_self" class="gnb_1da"><span>회사 계약거래</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="ccs">
+        <a href="javascript:;" class="add-button"><i class="bi bi-star"></i> 즐겨찾기</a>
+      </div>
+    </div>
+    <a class="res-call-btn" href="tel:1522-8754"><i class="fa fa-phone" aria-hidden="true"></i></a>
+    <a href="javascript:;" class="res-header-btn" onclick="openMenu()"><i class="fa fa-bars" aria-hidden="true"></i></a>
+  </div>
 
+  <!-- 사이드 메뉴 -->
+  <div id="sideMask">
+    <div class="menu-in">
+      <div id="side-menuTop">
+        <div class="side-close" onclick="closeMenu()">Ⅹ</div>
+        <nav id="sgnb">
+          <h1><img src="https://15228754.com/img/logo.png?v1"></h1>
+          <ul id="sgnb_1dul">
+            <li class="sgnb_1dli">
+              <a href="javascript:;" class="sgnb_1da">온라인 주문<span></span></a>
+              <ul class="sgnb_2dul">
+                <li class="sgnb_2dli"><a href="https://15228754.1han.kr" target="_blank" class="sgnb_2da"><span>온라인 주문</span></a></li>
+              </ul>
+            </li>
+            <li class="sgnb_1dli">
+              <a href="javascript:;" class="sgnb_1da">차량종류 확인<span></span></a>
+              <ul class="sgnb_2dul">
+                <li class="sgnb_2dli"><a href="http://15228754.com/bbs/content.php?co_id=csize" target="_self" class="sgnb_2da"><span>차량안내</span></a></li>
+              </ul>
+            </li>
+            <li class="sgnb_1dli">
+              <a href="javascript:;" class="sgnb_1da">자주하는 질문<span></span></a>
+              <ul class="sgnb_2dul">
+                <li class="sgnb_2dli"><a href="http://15228754.com/bbs/board.php?bo_table=faq" target="_self" class="sgnb_2da"><span>자주하는 질문</span></a></li>
+              </ul>
+            </li>
+            <li class="sgnb_1dli">
+              <a href="javascript:;" class="sgnb_1da">회사 계약거래<span></span></a>
+              <ul class="sgnb_2dul">
+                <li class="sgnb_2dli"><a href="http://15228754.com/bbs/write.php?bo_table=business" target="_self" class="sgnb_2da"><span>회사 계약거래</span></a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="sgnb-copyright">
+            COPYRIGHT &copy; <strong>화물인.</strong><br>ALL RIGHTS RESERVED.
+          </div>
+        </nav>
+        <script>
+          jQuery(function(){
+            jQuery(".sgnb_1da").click(function(){
+              var $this = $(this);
+              var $vis = $this.next(".sgnb_2dul").is(":visible");
+              $(".sgnb_1da").removeClass("on");
+              $(".sgnb_2dul").slideUp();
+              if( $vis )
+              {
+                $this.removeClass("on");
+                $this.next(".sgnb_2dul").slideUp();
+              }
+              else
+              {
+                $this.addClass("on");
+                $this.next(".sgnb_2dul").slideDown();
+              }
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- 라이브러리 리소스 -->
+  <link href="//unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="//unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://15228754.com/theme/basic/css/main.css?1788770648">
+  <script src="https://15228754.com/js/slick/slick.min.js"></script>
+  <link rel="stylesheet" href="https://15228754.com/js/slick/slick.css">
+
+  <!-- 메인 휠 컨테이너 영역 (총 6개 섹션) -->
+  <div id="wrapper">
+
+    <!-- Container 1: 비주얼 영역 -->
+    <div class="section section1">
+      <div id="visual-section">
+        <div class="visual-area">
+          <h2 data-aos="fade-up">화물운송이 <br>쉬워집니다</h2>
+          <h4 data-aos="fade-up" data-aos-delay="300">Ai 배차 플랫폼</h4>
+          <h3 data-aos="fade-up" data-aos-delay="600">오토바이, 다마스&라보, 1톤~25톤 / 소형이사, 냉장, 냉동, 제주도</h3>
+          <a href="https://15228754.1han.kr" data-aos="fade-up" data-aos-delay="900" target="_blank"><span>전화문의</span>1522-8754</a>
+          <div class="box-box" data-aos="fade-right" data-aos-delay="1200">
+            <div class="box sb1">
+              <div class="icon"><img src="https://15228754.com/img/visual_icon1.png"></div>
+              <div class="txt">신용카드 <br>결제 가능</div>
+            </div>
+            <div class="box sb2">
+              <div class="icon"><img src="https://15228754.com/img/visual_icon2.png"></div>
+              <div class="txt">기업 <br>월거래</div>
+            </div>
+            <div class="box sb3">
+              <div class="icon"><img src="https://15228754.com/img/visual_icon3.png"></div>
+              <div class="txt">전지역 <br>배차</div>
+            </div>
+            <div class="box sb4">
+              <div class="icon"><img src="https://15228754.com/img/visual_icon4.png"></div>
+              <div class="txt">당일운송 / <br>예약</div>
+            </div>
+          </div>
+          <div class="visual-img"><img src="https://15228754.com/img/visual_img.png"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container 2: 비즈니스 문의 영역 -->
+    <div class="section section2">
+      <div id="biz-section">
+        <div class="biz-area">
+          <h3 data-aos="fade-down">화물운송이 필요하신가요?</h3>
+          <div data-aos="fade-down" data-aos-delay="300">화물인에서는 개인고객 및 기업고객에 전문화된 업체이며, <br>안전하고 빠르게 운송해드립니다.</div>
+          <a href="https://15228754.com/bbs/write.php?bo_table=business" data-aos="fade-right" data-aos-delay="300">기업 월거래 문의</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container 3: 차량종류 안내 영역 -->
+    <div class="section section3">
+      <div id="cartype-wrap">
+        <div id="cartype-section">
+          <h2 data-aos="fade-down">오토바이(퀵)부터 1톤~5톤이상 다양한 차량에 배차가 가능합니다.</h2>
+          <h3 data-aos="fade-down" data-aos-delay="300">운송하실 화물의 크기에 따라 알맞은 차량이 배차되게 됩니다.</h3>
+          <div class="cartype-list-box" data-aos="fade-up" data-aos-delay="300">
+            <ul id="cartype">
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img100.jpg"></div>
+                  <div class="txt">
+                    <h2>다마스</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>1,600㎜</td></tr>
+                        <tr><th>폭</th><td>1,100㎜</td></tr>
+                        <tr><th>높이</th><td>1,100㎜</td></tr>
+                        <tr><th>적재량</th><td>400㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img200.jpg"></div>
+                  <div class="txt">
+                    <h2>라보</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>2,200㎜</td></tr>
+                        <tr><th>폭</th><td>1,400㎜</td></tr>
+                        <tr><th>높이</th><td>1,500㎜</td></tr>
+                        <tr><th>적재량</th><td>500㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img1.jpg"></div>
+                  <div class="txt">
+                    <h2>1톤 카고</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>2,850㎜</td></tr>
+                        <tr><th>폭</th><td>1,600㎜</td></tr>
+                        <tr><th>높이</th><td>1,700㎜</td></tr>
+                        <tr><th>적재량</th><td>1,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img2.jpg"></div>
+                  <div class="txt">
+                    <h2>1톤 탑·윙바디</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>2,850㎜</td></tr>
+                        <tr><th>폭</th><td>1,600㎜</td></tr>
+                        <tr><th>높이</th><td>1,700㎜</td></tr>
+                        <tr><th>적재량</th><td>1,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img3.jpg"></div>
+                  <div class="txt">
+                    <h2>1.4톤 카고</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>3,100㎜</td></tr>
+                        <tr><th>폭</th><td>1,700㎜</td></tr>
+                        <tr><th>높이</th><td>-</td></tr>
+                        <tr><th>적재량</th><td>2,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img4.jpg"></div>
+                  <div class="txt">
+                    <h2>1.4톤 탑·윙바디</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>3,100㎜</td></tr>
+                        <tr><th>폭</th><td>1,700㎜</td></tr>
+                        <tr><th>높이</th><td>1,800㎜</td></tr>
+                        <tr><th>적재량</th><td>2,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img5.jpg"></div>
+                  <div class="txt">
+                    <h2>2.5톤 카고</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>4,300㎜</td></tr>
+                        <tr><th>폭</th><td>1,800㎜</td></tr>
+                        <tr><th>높이</th><td>-</td></tr>
+                        <tr><th>적재량</th><td>3,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img6.jpg"></div>
+                  <div class="txt">
+                    <h2>2.5톤 탑·윙바디</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>4,300㎜</td></tr>
+                        <tr><th>폭</th><td>1,800㎜</td></tr>
+                        <tr><th>높이</th><td>2,200㎜</td></tr>
+                        <tr><th>적재량</th><td>3,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img7.jpg"></div>
+                  <div class="txt">
+                    <h2>5톤 카고</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>6,200㎜</td></tr>
+                        <tr><th>폭</th><td>2,230㎜</td></tr>
+                        <tr><th>높이</th><td>-</td></tr>
+                        <tr><th>적재량</th><td>5,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img8.jpg"></div>
+                  <div class="txt">
+                    <h2>5톤 탑·윙바디</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>6,200㎜</td></tr>
+                        <tr><th>폭</th><td>2,230㎜</td></tr>
+                        <tr><th>높이</th><td>2,400㎜</td></tr>
+                        <tr><th>적재량</th><td>5,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img9.jpg"></div>
+                  <div class="txt">
+                    <h2>11톤 카고</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>9,100㎜</td></tr>
+                        <tr><th>폭</th><td>2,230㎜</td></tr>
+                        <tr><th>높이</th><td>-</td></tr>
+                        <tr><th>적재량</th><td>13,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img10.jpg"></div>
+                  <div class="txt">
+                    <h2>11톤 탑·윙바디</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>9,100㎜</td></tr>
+                        <tr><th>폭</th><td>2,340㎜</td></tr>
+                        <tr><th>높이</th><td>2,500㎜</td></tr>
+                        <tr><th>적재량</th><td>13,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="box">
+                  <div class="img"><img src="https://15228754.com/img/car_img11.jpg"></div>
+                  <div class="txt">
+                    <h2>25톤 카고</h2>
+                    <table>
+                      <tbody>
+                        <tr><th>길이</th><td>10,100㎜</td></tr>
+                        <tr><th>폭</th><td>2,340㎜</td></tr>
+                        <tr><th>높이</th><td>-</td></tr>
+                        <tr><th>적재량</th><td>25,000㎏</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <script>
+        jQuery(document).ready(function($) {
+          jQuery('#cartype').slick({
+            dots: true,
+            infinite: true,
+            slidesToShow:5,
+            slidesToScroll:5,
+            centerMode:false,
+            responsive: [
+            {
+              breakpoint: 1000,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll:3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 800,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll:2,
+                infinite: true,
+                dots: true
+              }
+            }
+            ]
+          });
+        });
+      </script>
+    </div>
+
+    <!-- Container 4: 화물인 장점 영역 -->
+    <div class="section section4">
+      <div id="merit-section">
+        <div class="merit-area">
+          <div class="merit-box mb1">
+            <div class="img-box" data-aos="fade-right"><img src="https://15228754.com/img/merit_img1.png"></div>
+            <div class="txt-box" data-aos="fade-left">
+              <span class="cc1"><em></em></span>
+              <h3>높은 견적에 부담되셨나요?<strong>합리적인 가격으로!</strong></h3>
+              <div>다년간 쌓아온 노하우로 출발지와 도착지의 최적의 거리와 <br>합리적인 가격을 안내해드립니다.</div>
+            </div>
+          </div>
+          <div class="merit-box mb2">
+            <div class="img-box" data-aos="fade-right"><img src="https://15228754.com/img/merit_img2.png"></div>
+            <div class="txt-box" data-aos="fade-left">
+              <span class="cc2"><em></em><em></em></span>
+              <h3>복잡한 화물접수로 어려우셨나요?<strong>이젠 간편하게!</strong></h3>
+              <div>PC, Mobile, App - 스마트하게 <br>언제 어디서든 간편하게 배송접수를 하실 수 있습니다.</div>
+            </div>
+          </div>
+          <div class="merit-box mb1">
+            <div class="img-box" data-aos="fade-right"><img src="https://15228754.com/img/merit_img3.png"></div>
+            <div class="txt-box" data-aos="fade-left">
+              <span class="cc3"><em></em><em></em><em></em></span>
+              <h3>신속, 정확, 안전<strong>빠르고 안전하게!</strong></h3>
+              <div>고객님의 위치에서 가까운 화물 기사님에게 배차하여 <br>원하시는 시간에 맞춰 상차 후 안전하고 정확하게 배송해드립니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container 5: Hotline 센터 영역 -->
+    <div class="section section5">
+      <div id="hotline-section">
+        <div class="hotline-box">
+          <div class="box"><a href="tel:1522-8754" data-aos="fade-right">화물인 고객센터</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container 6: FAQ 영역 -->
+    <div class="section section6">
+      <div id="faq-section">
+        <div class="faq-area">
+          <div class="left-box" data-aos="fade-right">
+            <h3>자주하는 질문 (FAQ)</h3>
+            <h2>화물운송의 <br>모든것을 알려드립니다.</h2>
+            <a href="https://15228754.com/bbs/board.php?bo_table=faq">FAQ 더보기</a>
+          </div>
+          <div class="right-box" data-aos="fade-left">
+            <ul>
+              <li>
+                <a href="https://15228754.com/bbs/board.php?bo_table=faq&amp;wr_id=24">
+                  <div class="box">
+                    <h3>카드 결제 가능한가요?</h3>
+                    <div><p><span style="font-family:'굴림체', GulimChe;">온라인 카드결제 할부도 가능합니다</span></p></div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="https://15228754.com/bbs/board.php?bo_table=faq&amp;wr_id=23">
+                  <div class="box">
+                    <h3>﻿당일 운송도 가능한가요?</h3>
+                    <div><p><span style="font-family:'굴림체', GulimChe;font-size:9pt;">당일예약 및 바로운송도 가능합니다</span></p></div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="https://15228754.com/bbs/board.php?bo_table=faq&amp;wr_id=21">
+                  <div class="box">
+                    <h3>화물 위치를 알 수 있나요?</h3>
+                    <div><p><span style="font-family:'굴림체', GulimChe;font-size:9pt;">실시간으로 확인 가능합니다</span></p></div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- 하단 푸터 영역 -->
+  <div id="ft">
+    <div id="ft_btn">
+      <div class="ft_btn_area">
+        <ul>
+          <li><a href="https://15228754.com/bbs/content.php?co_id=privacy"><strong>개인정보취급방침</strong></a></li>
+          <li><a href="https://15228754.com/bbs/content.php?co_id=email">이메일무단수집거부</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="ft_wr">
+      <div class="ft_info">
+        <h3><img src="https://15228754.com/img/logon.png"></h3>
+        <strong>회사명</strong>주식회사 화물인<span></span>
+        <strong>사업자등록번호</strong>360-88-02719<span></span>
+        <strong>화물운송주선허가</strong>제2023-27호<span></span>
+        <strong>대표자</strong>홍진택<span></span>
+        <strong>대표번호</strong>1522-8754<span></span><br>
+        <strong>주소</strong>경기 안산시 단원구 신길로1길 86, 1동 603호(신길동)<span></span>
+        <strong>이메일</strong>hwamulin4@naver.com
+        <div class="copyright">COPYRIGHT ⓒ <strong>화물인</strong>. All Right Reserved.</div>
+      </div>
+    </div>
+    <button type="button" id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
+    <script>
+      $(function() {
+        $("#top_btn").on("click", function() {
+          $("html, body").animate({scrollTop:0}, '500');
+          return false;
+        });
+      });
+    </script>
+  </div>
+
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">if(!wcs_add) var wcs_add = {};wcs_add["wa"] = "1a9032886974420";if(window.wcs) {wcs_do();}</script>
+  <!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+  <!--[if lte IE 7]>
+  <script>
+  $(function() {
+      var $sv_use = $(".sv_use");
+      var count = $sv_use.length;
+      $sv_use.each(function() {
+          $(this).css("z-index", count);
+          $(this).css("position", "relative");
+          count = count - 1;
+      });
+  });
+  </script>
+  <![endif]-->
+  <!-- LOGGER(TM) TRACKING SCRIPT V.40 FOR logger.co.kr / 110769 : COMBINE TYPE / DO NOT ALTER THIS SCRIPT. 20230427-->
+  <script type="text/javascript">var _TRK_LID = "110769";var _L_TD = "ssl.logger.co.kr";var _TRK_CDMN = ".15228754.com";</script>
+  <script type="text/javascript">var _CDN_DOMAIN = location.protocol == "https:" ? "https://fs.bizspring.net" : "http://fs.bizspring.net"; (function (b, s) { var f = b.getElementsByTagName(s)[0], j = b.createElement(s); j.async = true; j.src = '//fs.bizspring.net/fs4/bstrk.1.js'; f.parentNode.insertBefore(j, f); })(document, 'script');</script>
+  <noscript><img alt="Logger Script" width="1" height="1" src="http://ssl.logger.co.kr/tracker.1.tsp?u=110769&amp;js=N"/></noscript>
+  <!-- END OF LOGGER TRACKING SCRIPT -->
+  
+  <script src="/index.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
