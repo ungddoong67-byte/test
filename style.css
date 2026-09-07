@@ -29,7 +29,7 @@ html, body {
 /* ==========================================
    1. PC / 데스크톱용 배경 이미지 (기본값)
    ========================================== */
-.section1 { background-image: url('bg1.png'); }
+.section1 { background-image: url('bg1.webp'); }
 .section2 { background-image: url('bg2.webp'); }
 .section3 { background-image: url('bg3.webp'); }
 .section4 { background-image: url('bg4.webp'); }
