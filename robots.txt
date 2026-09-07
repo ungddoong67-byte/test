@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://가평퀵서비스.퀵배송1661-4262.kr/sitemap.xml
-
-
-
