@@ -113,8 +113,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 700); // 스크롤 애니메이션 동작 시간 동안 중복 감지 방지
   }
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-  // 별도의 Wheel 이벤트 간섭 없이 브라우저 기본 CSS Scroll Snap에 맡깁니다.
-  console.log('페이지 로드 완료');
-});
