@@ -113,3 +113,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 700); // 스크롤 애니메이션 동작 시간 동안 중복 감지 방지
   }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.getElementById('mainContainer');
+  const section7 = document.getElementById('section7');
+
+  if (container && section7) {
+    container.addEventListener('scroll', function () {
+      // 7번 섹션의 시작 위치 계산
+      const section7Top = section7.offsetTop;
+
+      // 7번 섹션 상단 근처에 도달하면 스냅을 끔 (내부 자유 스크롤)
+      if (container.scrollTop >= section7Top - 50) {
+        container.style.scrollSnapType = 'none';
+      } else {
+        // 1~6번 영역으로 올라오면 다시 풀페이지 스냅 활성화
+        container.style.scrollSnapType = 'y mandatory';
+      }
+    });
+  }
+});
