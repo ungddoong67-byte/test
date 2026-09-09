@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
   background: transparent !important;
 }
 
-/* 각 섹션 공통 스타일 */
+/* 풀페이지 섹션 공통 스타일 (1 ~ 6번) */
 .section {
   position: relative;
   width: 100vw;
@@ -79,15 +79,10 @@ body::-webkit-scrollbar {
   /* -------------------------------------------------------------
      [사진 선명하게 처리하는 핵심 CSS 속성]
   ------------------------------------------------------------- */
-  /* 1. 이미지 확대/축소 시 픽셀 경계를 또렷하게 보정 */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-
-  /* 2. 그래픽 가속 및 이미지 변형 시 렌더링 품질 극대화 */
   image-rendering: high-quality;
-  transform: translateZ(0); /* 하드웨어 가속을 통해 앤티앨리어싱 선명화 */
-
-  /* 3. 대비(contrast)를 5~10% 살짝 올려 윤곽을 또렷하게 만듦 */
+  transform: translateZ(0);
   filter: contrast(105%) brightness(102%);
 }
 
@@ -115,6 +110,67 @@ body::-webkit-scrollbar {
   opacity: 0.95;
   color: #ffffff;
   text-shadow: none;
+}
+
+/* -------------------------------------------------------------
+   [7번째 일반 페이지 전용 스타일]
+------------------------------------------------------------- */
+.section-normal {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* 최소 높이는 1vh 채우고, 내용이 많으면 자동으로 늘어남 */
+  scroll-snap-align: start; /* 상단 스냅 정렬 유지 */
+  background-color: #222222; /* 일반 섹션 배경색 */
+  color: #ffffff;
+  padding: 100px 20px 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.normal-content {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.normal-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.normal-content p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.info-box {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-align: left;
+}
+
+.info-box p {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #eeeeee;
+}
+
+.info-box p strong {
+  color: #3578E5;
+}
+
+.footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #888888;
 }
 
 /* 모바일 상단 고정 2구 버튼 스타일 (기본 PC에서는 숨김) */
@@ -150,14 +206,14 @@ body::-webkit-scrollbar {
   color: #000000 !important; /* 카카오 글씨 - 검정색 */
 }
 
-/* 모바일 화면(화면 너비 768px 이하)에서만 고정 버튼 표시 및 여백 설정 */
+/* 모바일 화면(화면 너비 768px 이하) 설정 */
 @media (max-width: 768px) {
   .mobile-bottom-nav {
     display: flex;
   }
 
   .content {
-    top: 80px !important; /* 상단 바 높이(60px) 고려하여 위치 조정 */
+    top: 80px !important;
     left: 20px !important;
     right: auto !important;
     transform: none !important;
@@ -178,9 +234,17 @@ body::-webkit-scrollbar {
     line-height: 1.4;
     text-shadow: none;
   }
+
+  .section-normal {
+    padding-top: 100px;
+  }
+
+  .normal-content h2 {
+    font-size: 1.8rem;
+  }
 }
 
-/* PC 화면(769px 이상)에서는 body 상/하단 여백 제거 */
+/* PC 화면(769px 이상) 설정 */
 @media (min-width: 769px) {
   body {
     padding-top: 0;
