@@ -42,7 +42,7 @@
       overflow: hidden; /* 이미지 돌출 방지 */
     }
 
-    /* 섹션에 꽉 채우는 img 태그 스타일 */
+    /* 섹션에 꽉 채우는 img 태그 스타일 (선명도 강화 설정 추가) */
     .section-img {
       position: absolute;
       top: 0;
@@ -52,6 +52,20 @@
       object-fit: cover; /* 비율을 유지하면서 요소 전체에 꽉 채움 */
       object-position: center;
       z-index: 0;
+
+      /* -------------------------------------------------------------
+         [사진 선명하게 처리하는 핵심 CSS 속성]
+      ------------------------------------------------------------- */
+      /* 1. 이미지 확대/축소 시 픽셀 경계를 또렷하게 보정 */
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+
+      /* 2. 그래픽 가속 및 이미지 변형 시 렌더링 품질 극대화 */
+      image-rendering: high-quality;
+      transform: translateZ(0); /* 하드웨어 가속을 통해 앤티앨리어싱 선명화 */
+
+      /* 3. 대비(contrast)를 5~10% 살짝 올려 윤곽을 또렷하게 만듦 */
+      filter: contrast(105%) brightness(102%);
     }
 
     /* 이미지 위에 어두운 덮개를 씌워 글자를 잘 보이게 설정 */
@@ -179,14 +193,13 @@
     </section>
 
     <section class="section" id="section7">
-      <img src="images/photo7.jpg" alt="사진 7" class="section-img">
       <div class="content">
         <h1>Container 07</h1>
         <p>일곱 번째 마지막 이미지 섹션입니다.</p>
       </div>
     </section>
   </div>
-
+  
   <script>
     const container = document.getElementById('mainContainer');
     const sections = document.querySelectorAll('.section');
