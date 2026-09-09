@@ -30,7 +30,7 @@
     /* 각 섹션 공통 스타일 */
     .section {
       position: relative;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
       scroll-snap-align: start;
       scroll-snap-stop: always;
@@ -42,15 +42,15 @@
       overflow: hidden; /* 이미지 돌출 방지 */
     }
 
-    /* 섹션에 꽉 채우는 img 태그 스타일 (선명도 강화 설정 추가) */
+    /* 섹션에 꽉 채우는 img 태그 스타일 (창 크기 맞춤 최적화) */
     .section-img {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* 비율을 유지하면서 요소 전체에 꽉 채움 */
-      object-position: center;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; /* 화면 창 비율에 맞춰 빈틈없이 꽉 채움 */
+      object-position: center; /* 이미지의 중앙을 기준으로 맞춤 */
       z-index: 0;
 
       /* -------------------------------------------------------------
@@ -88,6 +88,33 @@
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
+    /* 우측 네비게이션 인디케이터 */
+    .nav-dots {
+      position: fixed;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 100;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: #ffffff;
+      transform: scale(1.4);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
   </style>
 </head>
 <body>
@@ -160,7 +187,7 @@
       </div>
     </section>
   </div>
-  
+
   <script>
     const container = document.getElementById('mainContainer');
     const sections = document.querySelectorAll('.section');
