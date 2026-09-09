@@ -3,6 +3,11 @@ const sections = document.querySelectorAll('.section');
 const dots = document.querySelectorAll('.dot');
 let isScrolling = false;
 
+// 마우스 우클릭 방지
+document.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+});
+
 // 점 클릭 시 이동
 function scrollToSection(index) {
   sections[index].scrollIntoView({ behavior: 'smooth' });
