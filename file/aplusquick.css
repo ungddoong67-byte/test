@@ -76,9 +76,6 @@ body::-webkit-scrollbar {
   object-position: center; /* 이미지의 중앙을 기준으로 맞춤 */
   z-index: 0;
 
-  /* -------------------------------------------------------------
-     [사진 선명하게 처리하는 핵심 CSS 속성]
-  ------------------------------------------------------------- */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   image-rendering: high-quality;
@@ -118,14 +115,14 @@ body::-webkit-scrollbar {
 .section-normal {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* 최소 높이는 1vh 채우고, 내용이 많으면 자동으로 늘어남 */
-  scroll-snap-align: start; /* 상단 스냅 정렬 유지 */
-  background-color: #222222; /* 일반 섹션 배경색 */
+  min-height: 100vh;
+  scroll-snap-align: start;
+  background-color: #111111;
   color: #ffffff;
-  padding: 100px 20px 60px 20px;
+  padding-top: 100px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .normal-content {
@@ -133,6 +130,7 @@ body::-webkit-scrollbar {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  padding: 0 20px;
 }
 
 .normal-content h2 {
@@ -165,12 +163,62 @@ body::-webkit-scrollbar {
   color: #3578E5;
 }
 
-.footer {
-  margin-top: 60px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.9rem;
-  color: #888888;
+/* -------------------------------------------------------------
+   [검정 배경 / 흰색 글씨 푸터 스타일]
+------------------------------------------------------------- */
+.site-footer { 
+  background-color: #000000; 
+  color: #ffffff; 
+  padding: 40px 20px; 
+  font-size: 14px; 
+  line-height: 1.8; 
+  margin-top: 50px; 
+  border-top: 1px solid #222222; 
+  width: 100%;
+}
+
+.footer-container { 
+  max-width: 800px; 
+  margin: 0 auto; 
+}
+
+.footer-info p { 
+  margin: 5px 0; 
+  color: #dddddd; 
+}
+
+.footer-company { 
+  font-size: 16px; 
+  font-weight: bold; 
+  color: #ffffff !important; 
+  margin-bottom: 10px !important; 
+}
+
+.footer-tel { 
+  color: #ffffff; 
+  font-weight: bold; 
+  text-decoration: none; 
+}
+
+.footer-tel:hover { 
+  text-decoration: underline; 
+}
+
+.footer-link { 
+  color: #cccccc; 
+  text-decoration: none; 
+}
+
+.footer-link:hover { 
+  text-decoration: underline; 
+}
+
+.footer-copyright { 
+  margin-top: 20px; 
+  padding-top: 15px; 
+  border-top: 1px solid #222222; 
+  font-size: 12px; 
+  color: #888888; 
 }
 
 /* 모바일 상단 고정 2구 버튼 스타일 (기본 PC에서는 숨김) */
@@ -236,7 +284,7 @@ body::-webkit-scrollbar {
   }
 
   .section-normal {
-    padding-top: 100px;
+    padding-top: 90px;
   }
 
   .normal-content h2 {
