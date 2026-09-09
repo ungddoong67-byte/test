@@ -69,10 +69,10 @@ body::-webkit-scrollbar {
   font-family: 'Godo-M', 'Pretendard', sans-serif;
 }
 
-/* [수정] 세션1 글자 위치: 위에서 250px, 왼쪽 정렬 */
+/* [수정] 세션1 글자 위치: 위에서 260px, 왼쪽 정렬 */
 .section:first-child .content,
 #section1 .content {
-  top: 250px;
+  top: 260px;
   left: 10%; /* 좌측 여백 설정 */
   transform: none; /* 중앙 정렬 해제 */
   text-align: left;
