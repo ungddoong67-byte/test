@@ -72,7 +72,7 @@ body::-webkit-scrollbar {
 /* PC 세션1 글자 위치: 위에서 250px, 왼쪽 정렬 */
 .section:first-child .content,
 #section1 .content {
-  top: 280px;
+  top: 250px;
   left: 10%;
   transform: none;
   text-align: left;
@@ -282,11 +282,11 @@ body::-webkit-scrollbar {
     display: flex;
   }
 
-  /* 모바일 환경 세션1 글자 위치: 위에서 140px로 조정 */
+  /* 모바일 환경 세션1 글자 위치: top: 140px로 수정 */
   .section:first-child .content,
   #section1 .content {
     top: 140px !important;
-    left: 22px !important;
+    left: 20px !important;
     max-width: calc(100% - 40px) !important;
   }
 
