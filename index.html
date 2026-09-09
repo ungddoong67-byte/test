@@ -100,6 +100,21 @@
       text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
     }
 
+    /* 모바일 반응형 폰트 및 위치 조절 (화면 너비 768px 이하) */
+    @media (max-width: 768px) {
+      .content {
+        top: 50px; /* 모바일에서 상단 여백 조절 */
+      }
+
+      .content h1 {
+        font-size: 2.2rem; /* 모바일 전용 제목 크기 (원하는대로 수정 가능) */
+      }
+
+      .content p {
+        font-size: 1rem; /* 모바일 전용 본문 크기 (원하는대로 수정 가능) */
+        margin-top: 10px;
+      }
+      
   </style>
 </head>
 <body>
