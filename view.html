@@ -1,24 +1,3 @@
-<?php
-include 'db.php';
-
-$title_param = isset($_GET['id']) ? trim($_GET['id']) : '';
-
-if (empty($title_param)) {
-    echo "<script>alert('잘못된 접근입니다.'); location.href='board.php';</script>";
-    exit;
-}
-
-$stmt = $conn->prepare("SELECT * FROM posts WHERE title = ? ORDER BY id DESC LIMIT 1");
-$stmt->bind_param("s", $title_param);
-$stmt->execute();
-$result = $stmt->get_result();
-$post = $result->fetch_assoc();
-
-if (!$post) {
-    echo "<script>alert('존재하지 않는 게시글입니다.'); location.href='board.php';</script>";
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
