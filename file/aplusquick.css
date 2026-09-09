@@ -69,12 +69,12 @@ body::-webkit-scrollbar {
   font-family: 'Godo-M', 'Pretendard', sans-serif;
 }
 
-/* [수정] 세션1 글자 위치: 위에서 260px, 왼쪽 정렬 */
+/* PC 세션1 글자 위치: 위에서 250px, 왼쪽 정렬 */
 .section:first-child .content,
 #section1 .content {
-  top: 260px;
-  left: 10%; /* 좌측 여백 설정 */
-  transform: none; /* 중앙 정렬 해제 */
+  top: 280px;
+  left: 10%;
+  transform: none;
   text-align: left;
   width: auto;
   max-width: 80%;
@@ -147,7 +147,7 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   text-align: center;
   padding: 0 20px;
-  word-break: keep-all; /* 모바일/PC 단어 단위 깨끗한 줄바꿈 */
+  word-break: keep-all;
   overflow-wrap: break-word;
 }
 
@@ -170,7 +170,7 @@ body::-webkit-scrollbar {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   text-align: left;
-  word-break: keep-all; /* 모바일/PC 단어 단위 깨끗한 줄바꿈 */
+  word-break: keep-all;
   overflow-wrap: break-word;
 }
 
@@ -282,10 +282,10 @@ body::-webkit-scrollbar {
     display: flex;
   }
 
-  /* 모바일 환경 세션1 위치 및 반응형 정렬 */
+  /* 모바일 환경 세션1 글자 위치: 위에서 150px로 조정 */
   .section:first-child .content,
   #section1 .content {
-    top: 100px !important;
+    top: 150px !important;
     left: 20px !important;
     max-width: calc(100% - 40px) !important;
   }
