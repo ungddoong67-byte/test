@@ -68,11 +68,15 @@
       filter: contrast(105%) brightness(102%);
     }
 
-    /* 텍스트 내용이 오버레이 위에 오도록 설정 */
+/* 텍스트 내용 상단 중앙 배치 설정 */
     .content {
-      position: relative;
+      position: absolute;
+      top: 80px; /* 상단에서 떨어진 거리 (원하시는 만큼 수치 조절 가능) */
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 2;
       text-align: center;
+      width: 100%;
     }
 
     .content h1 {
