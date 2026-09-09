@@ -113,6 +113,7 @@ body::-webkit-scrollbar {
   width: 100%;
   min-height: 100vh;
   scroll-snap-align: start;
+  scroll-snap-stop: normal; /* 7번 섹션 내부 자유 스크롤을 위해 normal로 설정 */
   background-color: #111111;
   color: #ffffff;
   padding-top: 100px;
