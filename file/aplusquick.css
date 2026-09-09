@@ -282,11 +282,11 @@ body::-webkit-scrollbar {
     display: flex;
   }
 
-  /* 모바일 환경 세션1 글자 위치: 위에서 150px로 조정 */
+  /* 모바일 환경 세션1 글자 위치: 위에서 140px로 조정 */
   .section:first-child .content,
   #section1 .content {
-    top: 150px !important;
-    left: 20px !important;
+    top: 140px !important;
+    left: 22px !important;
     max-width: calc(100% - 40px) !important;
   }
 
