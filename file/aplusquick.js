@@ -8,6 +8,16 @@ document.addEventListener('contextmenu', (e) => {
   e.preventDefault();
 });
 
+// 텍스트 및 드래그 선택 방지
+document.addEventListener('selectstart', (e) => {
+  e.preventDefault();
+});
+
+// 이미지 및 요소 드래그 방지
+document.addEventListener('dragstart', (e) => {
+  e.preventDefault();
+});
+
 // 점 클릭 시 이동
 function scrollToSection(index) {
   sections[index].scrollIntoView({ behavior: 'smooth' });
