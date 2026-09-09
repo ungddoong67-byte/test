@@ -39,11 +39,19 @@
       align-items: center;
       flex-direction: column;
       color: #ffffff;
-      
-      /* 이미지 배경 설정 */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      overflow: hidden; /* 이미지 돌출 방지 */
+    }
+
+    /* 섹션에 꽉 채우는 img 태그 스타일 */
+    .section-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 비율을 유지하면서 요소 전체에 꽉 채움 */
+      object-position: center;
+      z-index: 0;
     }
 
     /* 이미지 위에 어두운 덮개를 씌워 글자를 잘 보이게 설정 */
@@ -77,17 +85,6 @@
       opacity: 0.9;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-
-    /* -------------------------------------------------------------
-       7개 컨테이너에 개별 이미지 적용 (보유하신 이미지 경로로 변경하세요)
-    ------------------------------------------------------------- */
-    #section1 { background-image: url('images/pg1.jpg'); }
-    #section2 { background-image: url('images/pg2.jpg'); }
-    #section3 { background-image: url('images/pg3.jpg'); }
-    #section4 { background-image: url('images/pg4.jpg'); }
-    #section5 { background-image: url('images/pg5.jpg'); }
-    #section6 { background-image: url('images/pg6.jpg'); }
-    #section7 { background-image: url('images/photo7.jpg'); }
 
     /* 우측 네비게이션 인디케이터 */
     .nav-dots {
@@ -134,6 +131,7 @@
   <!-- 7개 섹션 컨테이너 -->
   <div class="container" id="mainContainer">
     <section class="section" id="section1">
+      <img src="images/pc1.png" alt="사진 1" class="section-img">
       <div class="content">
         <h1>Container 01</h1>
         <p>첫 번째 이미지 섹션입니다.</p>
@@ -141,6 +139,7 @@
     </section>
 
     <section class="section" id="section2">
+      <img src="images/pc2.png" alt="사진 2" class="section-img">
       <div class="content">
         <h1>Container 02</h1>
         <p>두 번째 이미지 섹션입니다.</p>
@@ -148,6 +147,7 @@
     </section>
 
     <section class="section" id="section3">
+      <img src="images/pc3.png" alt="사진 3" class="section-img">
       <div class="content">
         <h1>Container 03</h1>
         <p>세 번째 이미지 섹션입니다.</p>
@@ -155,6 +155,7 @@
     </section>
 
     <section class="section" id="section4">
+      <img src="images/pc4.png" alt="사진 4" class="section-img">
       <div class="content">
         <h1>Container 04</h1>
         <p>네 번째 이미지 섹션입니다.</p>
@@ -162,6 +163,7 @@
     </section>
 
     <section class="section" id="section5">
+      <img src="images/pc5.png" alt="사진 5" class="section-img">
       <div class="content">
         <h1>Container 05</h1>
         <p>다섯 번째 이미지 섹션입니다.</p>
@@ -169,6 +171,7 @@
     </section>
 
     <section class="section" id="section6">
+      <img src="images/pc6.png" alt="사진 6" class="section-img">
       <div class="content">
         <h1>Container 06</h1>
         <p>여섯 번째 이미지 섹션입니다.</p>
@@ -176,6 +179,7 @@
     </section>
 
     <section class="section" id="section7">
+      <img src="images/photo7.jpg" alt="사진 7" class="section-img">
       <div class="content">
         <h1>Container 07</h1>
         <p>일곱 번째 마지막 이미지 섹션입니다.</p>
