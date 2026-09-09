@@ -268,9 +268,10 @@ body::-webkit-scrollbar {
   color: #fff;
 }
 
+/* 전화 버튼: 배경색 #47C83E, 글자색 검정 */
 .mobile-bottom-nav .btn-call {
-  background-color: #00FF00;
-   color: #000000 !important;
+  background-color: #47C83E;
+  color: #000000 !important;
 }
 
 .mobile-bottom-nav .btn-kakao {
@@ -283,11 +284,11 @@ body::-webkit-scrollbar {
     display: flex;
   }
 
-  /* 모바일 환경 세션1 글자 위치: top: 120px로 수정 */
+  /* 모바일 환경 세션1 글자 위치: top 140px */
   .section:first-child .content,
   #section1 .content {
     top: 120px !important;
-    left: 21px !important;
+    left: 22px !important;
     max-width: calc(100% - 40px) !important;
   }
 
