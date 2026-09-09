@@ -84,7 +84,7 @@ html, body {
   font-size: 3.5rem;
   font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* 배경 이미지와 대비 보장 */
+  text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6); /* 배경 이미지와 대비 보장 */
 }
 
 .content p {
@@ -92,7 +92,7 @@ html, body {
   margin-top: 15px;
   opacity: 0.95;
   color: #ffffff;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); /* 배경 이미지와 대비 보장 */
+  text-shadow: 0 0px 0px rgba(0, 0, 0, 0.6); /* 배경 이미지와 대비 보장 */
 }
 
 /* 모바일 반응형 폰트 및 위치 조절 (화면 너비 768px 이하) */
