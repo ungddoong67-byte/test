@@ -4,120 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>도봉동퀵서비스</title>
-  <style>
-    @font-face {
-      font-family: 'Godo-M';
-      font-style: normal;
-      font-weight: 400;
-      src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'),
-           url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Godo-M', 'Pretendard', sans-serif;
-    }
-
-    /* 스크롤 스냅 컨테이너 */
-    .container {
-      width: 100%;
-      height: 100vh;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
-      scroll-behavior: smooth;
-    }
-
-    /* 각 섹션 공통 스타일 */
-    .section {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: #ffffff;
-      overflow: hidden; /* 이미지 돌출 방지 */
-    }
-
-    /* 섹션에 꽉 채우는 img 태그 스타일 (창 크기 맞춤 최적화) */
-    .section-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover; /* 화면 창 비율에 맞춰 빈틈없이 꽉 채움 */
-      object-position: center; /* 이미지의 중앙을 기준으로 맞춤 */
-      z-index: 0;
-
-      /* -------------------------------------------------------------
-         [사진 선명하게 처리하는 핵심 CSS 속성]
-      ------------------------------------------------------------- */
-      /* 1. 이미지 확대/축소 시 픽셀 경계를 또렷하게 보정 */
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-
-      /* 2. 그래픽 가속 및 이미지 변형 시 렌더링 품질 극대화 */
-      image-rendering: high-quality;
-      transform: translateZ(0); /* 하드웨어 가속을 통해 앤티앨리어싱 선명화 */
-
-      /* 3. 대비(contrast)를 5~10% 살짝 올려 윤곽을 또렷하게 만듦 */
-      filter: contrast(105%) brightness(102%);
-    }
-
-    /* 텍스트 내용 상단 중앙 배치 설정 */
-    .content {
-      position: absolute;
-      top: 100px; /* 상단에서 떨어진 거리 (원하시는 만큼 수치 조절 가능) */
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      text-align: center;
-      width: 100%;
-    }
-
-    .content h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
-    }
-
-    .content p {
-      font-size: 1.3rem;
-      margin-top: 15px;
-      opacity: 0.9;
-      text-shadow: 0 0px 0px rgba(0, 0, 0, 0.3);
-    }
-
-    /* 모바일 반응형 폰트 및 위치 조절 (화면 너비 768px 이하) */
-    @media (max-width: 768px) {
-      .content {
-        top: 50px; /* 모바일에서 상단 여백 조절 */
-      }
-
-      .content h1 {
-        font-size: 2.2rem; /* 모바일 전용 제목 크기 (원하는대로 수정 가능) */
-      }
-
-      .content p {
-        font-size: 1rem; /* 모바일 전용 본문 크기 (원하는대로 수정 가능) */
-        margin-top: 10px;
-      }
-      
-  </style>
+  <link rel="stylesheet" type="text/css" href="/file/aplusquick.css" />
 </head>
 <body>
+
+  <!-- 모바일 전용 상단 고정 바 -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-inner">
+      <a href="tel:1661-4262" class="btn-bottom-call">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        전화상담
+      </a>
+      <a href="https://pf.kakao.com/_xnRKLxb/chat" target="_blank" rel="noopener noreferrer" class="btn-bottom-kakao">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.557 1.707 4.8 4.27 6.054-.188.702-.682 2.545-.78 2.94-.122.49.178.483.376.352.157-.103 2.5-1.7 3.514-2.39.53.078 1.074.12 1.62.12 4.97 0 9-3.186 9-7.116S16.97 3 12 3z"/></svg>
+        카카오톡
+      </a>
+    </div>
+  </div>
 
   <!-- 7개 섹션 컨테이너 -->
   <div class="container" id="mainContainer">
@@ -175,54 +78,6 @@
     </section>
   </div>
 
-  <script>
-    const container = document.getElementById('mainContainer');
-    const sections = document.querySelectorAll('.section');
-    const dots = document.querySelectorAll('.dot');
-    let isScrolling = false;
-
-    // 점 클릭 시 이동
-    function scrollToSection(index) {
-      sections[index].scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // 스크롤 감지 및 활성 점 표시
-    container.addEventListener('scroll', () => {
-      const scrollPosition = container.scrollTop;
-      const windowHeight = window.innerHeight;
-
-      sections.forEach((section, index) => {
-        const sectionTop = section.offsetTop;
-        if (scrollPosition >= sectionTop - windowHeight / 3) {
-          dots.forEach(dot => dot.classList.remove('active'));
-          dots[index].classList.add('active');
-        }
-      });
-    });
-
-    // 마우스 휠 1섹션씩 이동 제어
-    container.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      if (isScrolling) return;
-
-      const delta = e.deltaY;
-      const currentScroll = container.scrollTop;
-      const windowHeight = window.innerHeight;
-      let targetIndex = Math.round(currentScroll / windowHeight);
-
-      if (delta > 0) {
-        targetIndex = Math.min(targetIndex + 1, sections.length - 1);
-      } else {
-        targetIndex = Math.max(targetIndex - 1, 0);
-      }
-
-      isScrolling = true;
-      scrollToSection(targetIndex);
-
-      setTimeout(() => {
-        isScrolling = false;
-      }, 700);
-    }, { passive: false });
-  </script>
+  <script src="/file/aplusquick.js"></script>
 </body>
 </html>
