@@ -18,8 +18,8 @@ html, body {
   height: 100%;
   overflow: hidden !important;
   font-family: 'Godo-M', 'Pretendard', sans-serif;
-  scrollbar-width: none !important; /* 파이어폭스 */
-  -ms-overflow-style: none !important; /* IE/Edge */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 html::-webkit-scrollbar,
@@ -29,20 +29,18 @@ body::-webkit-scrollbar {
   height: 0 !important;
 }
 
-/* 2. 스크롤 스냅 컨테이너 스크롤바 강제 숨김 */
+/* 2. 스크롤 컨테이너 설정 (JS와 호환되도록 스냅 보완) */
 .container {
   width: 100%;
   height: 100vh;
   overflow-y: scroll !important;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity; /* mandatory에서 proximity로 변경하여 JS 제어와 충돌 방지 */
   scroll-behavior: smooth;
 
-  /* 크롬 외 브라우저 스크롤바 숨김 */
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
 
-/* 크롬, 사파리, 에지, 웨일 전용 스크롤바 숨김 처리 */
 .container::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
@@ -62,18 +60,17 @@ body::-webkit-scrollbar {
   align-items: center;
   flex-direction: column;
   color: #ffffff;
-  overflow: hidden; /* 이미지 돌출 방지 */
+  overflow: hidden;
 }
 
-/* 섹션에 꽉 채우는 img 태그 스타일 (창 크기 맞춤 최적화) */
 .section-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover; /* 화면 창 비율에 맞춰 빈틈없이 꽉 채움 */
-  object-position: center; /* 이미지의 중앙을 기준으로 맞춤 */
+  object-fit: cover;
+  object-position: center;
   z-index: 0;
 
   image-rendering: -webkit-optimize-contrast;
@@ -83,13 +80,12 @@ body::-webkit-scrollbar {
   filter: contrast(105%) brightness(102%);
 }
 
-/* 텍스트 내용 상단 배치 설정 (PC 기본) */
 .content {
   position: absolute;
-  top: 120px; /* 상단에서 떨어진 거리 */
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10; /* 최상단 레이어 보장 */
+  z-index: 10;
   text-align: center;
   width: 100%;
 }
@@ -221,11 +217,11 @@ body::-webkit-scrollbar {
   color: #888888; 
 }
 
-/* 모바일 상단 고정 2구 버튼 스타일 (기본 PC에서는 숨김) */
+/* 모바일 상단 고정 2구 버튼 스타일 */
 .mobile-bottom-nav {
   display: none;
   position: fixed;
-  top: 0; /* 상단 고정 */
+  top: 0;
   left: 0;
   width: 100%;
   height: 60px;
@@ -246,15 +242,14 @@ body::-webkit-scrollbar {
 }
 
 .mobile-bottom-nav .btn-call {
-  background-color: #e74c3c; /* 전화 버튼 - 빨간색 */
+  background-color: #e74c3c;
 }
 
 .mobile-bottom-nav .btn-kakao {
-  background-color: #FEE500; /* 카카오톡 버튼 - 카카오 노란색 */
-  color: #000000 !important; /* 카카오 글씨 - 검정색 */
+  background-color: #FEE500;
+  color: #000000 !important;
 }
 
-/* 모바일 화면(화면 너비 768px 이하) 설정 */
 @media (max-width: 768px) {
   .mobile-bottom-nav {
     display: flex;
@@ -292,7 +287,6 @@ body::-webkit-scrollbar {
   }
 }
 
-/* PC 화면(769px 이상) 설정 */
 @media (min-width: 769px) {
   body {
     padding-top: 0;

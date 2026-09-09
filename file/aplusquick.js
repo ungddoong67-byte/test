@@ -62,3 +62,54 @@ container.addEventListener('wheel', (e) => {
     isScrolling = false;
   }, 700);
 }, { passive: false });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.getElementById('mainContainer');
+  const sections = document.querySelectorAll('.section, .section-normal');
+  let isScrolling = false;
+  let currentIndex = 0;
+
+  // Wheel 이벤트 제어 (PC 스크롤 감지)
+  container.addEventListener('wheel', function (e) {
+    // 7번째(마지막) 섹션 내부에 도착했을 때 처리
+    if (currentIndex === sections.length - 1) {
+      // 7번 섹션 최상단에서 위로 스크롤 시 6번 섹션으로 이동
+      if (e.deltaY < 0 && container.scrollTop <= sections[currentIndex].offsetTop) {
+        e.preventDefault();
+        goToSection(currentIndex - 1);
+      }
+      // 7번 섹션 내부에서는 일반 스크롤 허용
+      return;
+    }
+
+    e.preventDefault();
+
+    if (isScrolling) return;
+
+    if (e.deltaY > 0) {
+      // 아래로 스크롤
+      if (currentIndex < sections.length - 1) {
+        goToSection(currentIndex + 1);
+      }
+    } else {
+      // 위로 스크롤
+      if (currentIndex > 0) {
+        goToSection(currentIndex - 1);
+      }
+    }
+  }, { passive: false });
+
+  function goToSection(index) {
+    isScrolling = true;
+    currentIndex = index;
+
+    sections[index].scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    setTimeout(function () {
+      isScrolling = false;
+    }, 700); // 스크롤 애니메이션 동작 시간 동안 중복 감지 방지
+  }
+});
