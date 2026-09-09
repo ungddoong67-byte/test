@@ -72,7 +72,7 @@ html, body {
 /* 텍스트 내용 상단 중앙 배치 설정 */
 .content {
   position: absolute;
-  top: 100px; /* 상단에서 떨어진 거리 (원하시는 만큼 수치 조절 가능) */
+  top: 120px; /* 상단에서 떨어진 거리 (원하시는 만큼 수치 조절 가능) */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -96,7 +96,11 @@ html, body {
 /* 모바일 반응형 폰트 및 위치 조절 (화면 너비 768px 이하) */
 @media (max-width: 768px) {
   .content {
-    top: 50px; /* 모바일에서 상단 여백 조절 */
+    top: 700px; /* 모바일에서 상단 여백 조절 */
+    left: 20px; /* 좌측 여백 설정 */
+    transform: none; /* 중앙 정렬 해제 */
+    text-align: left; /* 텍스트 좌측 정렬 */
+    width: calc(100% - 40px); /* 좌우 여백을 고려한 너비 설정 */
   }
 
   .content h1 {
