@@ -69,6 +69,17 @@ body::-webkit-scrollbar {
   font-family: 'Godo-M', 'Pretendard', sans-serif;
 }
 
+/* [수정] 세션1 글자 위치: 위에서 250px, 왼쪽 정렬 */
+.section:first-child .content,
+#section1 .content {
+  top: 250px;
+  left: 10%; /* 좌측 여백 설정 */
+  transform: none; /* 중앙 정렬 해제 */
+  text-align: left;
+  width: auto;
+  max-width: 80%;
+}
+
 .section-img {
   position: absolute;
   top: 0;
@@ -101,7 +112,7 @@ body::-webkit-scrollbar {
   font-weight: 800;
   color: #ffffff;
   text-shadow: none;
-  line-height: 1.2; /* 줄간격 조절 (기존 대비 좁게) */
+  line-height: 1.2;
 }
 
 .content p {
@@ -110,7 +121,7 @@ body::-webkit-scrollbar {
   opacity: 0.95;
   color: #ffffff;
   text-shadow: none;
-  line-height: 1.35; /* 줄간격 조절 (기존 대비 좁게) */
+  line-height: 1.35;
 }
 
 /* -------------------------------------------------------------
@@ -136,19 +147,21 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   text-align: center;
   padding: 0 20px;
+  word-break: keep-all; /* 모바일/PC 단어 단위 깨끗한 줄바꿈 */
+  overflow-wrap: break-word;
 }
 
 .normal-content h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #ffffff;
-  line-height: 1.25; /* 줄간격 조절 */
+  line-height: 1.25;
 }
 
 .normal-content p {
   font-size: 1.1rem;
   color: #cccccc;
-  line-height: 1.4; /* 줄간격 조절 (기존 1.6 -> 1.4) */
+  line-height: 1.4;
 }
 
 .info-box {
@@ -157,13 +170,15 @@ body::-webkit-scrollbar {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   text-align: left;
+  word-break: keep-all; /* 모바일/PC 단어 단위 깨끗한 줄바꿈 */
+  overflow-wrap: break-word;
 }
 
 .info-box p {
   margin-bottom: 10px;
   font-size: 1rem;
   color: #eeeeee;
-  line-height: 1.4; /* 줄간격 조절 */
+  line-height: 1.4;
 }
 
 .info-box p strong {
@@ -178,7 +193,7 @@ body::-webkit-scrollbar {
   color: #ffffff; 
   padding: 40px 20px; 
   font-size: 14px; 
-  line-height: 1.5; /* 줄간격 조절 (기존 1.8 -> 1.5) */
+  line-height: 1.5; 
   margin-top: 50px; 
   border-top: 1px solid #222222; 
   width: 100%;
@@ -190,7 +205,7 @@ body::-webkit-scrollbar {
 }
 
 .footer-info p { 
-  margin: 3px 0; /* 간격 축소 */
+  margin: 3px 0; 
   color: #dddddd; 
 }
 
@@ -267,6 +282,14 @@ body::-webkit-scrollbar {
     display: flex;
   }
 
+  /* 모바일 환경 세션1 위치 및 반응형 정렬 */
+  .section:first-child .content,
+  #section1 .content {
+    top: 100px !important;
+    left: 20px !important;
+    max-width: calc(100% - 40px) !important;
+  }
+
   .content {
     top: 80px !important;
     left: 20px !important;
@@ -279,14 +302,14 @@ body::-webkit-scrollbar {
 
   .content h1 {
     font-size: 2rem;
-    line-height: 1.2; /* 모바일 타이틀 줄간격 좁게 */
+    line-height: 1.2;
     text-shadow: none;
   }
 
   .content p {
     font-size: 1rem;
     margin-top: 8px;
-    line-height: 1.35; /* 모바일 본문 줄간격 좁게 */
+    line-height: 1.35;
     text-shadow: none;
   }
 
