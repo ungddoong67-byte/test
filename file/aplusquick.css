@@ -96,7 +96,7 @@ html, body {
 /* 모바일 반응형 폰트 및 위치 조절 (화면 너비 768px 이하) */
 @media (max-width: 768px) {
   .content {
-    top: 700px; /* 모바일에서 상단 여백 조절 */
+    top: 50px; /* 모바일에서 상단 여백 조절 */
     left: 20px; /* 좌측 여백 설정 */
     transform: none; /* 중앙 정렬 해제 */
     text-align: left; /* 텍스트 좌측 정렬 */
